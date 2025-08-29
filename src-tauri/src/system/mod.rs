@@ -644,24 +644,18 @@ echo "✅ Development optimizations applied!"
     }
     
     async fn get_ollama_models(&self) -> Result<Vec<String>, Box<dyn std::error::Error>> {
-        let output = AsyncCommand::new("ollama")
-            .arg("list")
-            .output()
-            .await?;
+        use crate::system::ollama::OllamaManager;
         
-        if output.status.success() {
-            let models_output = String::from_utf8_lossy(&output.stdout);
-            let models: Vec<String> = models_output
-                .lines()
-                .skip(1) // Skip header
-                .filter_map(|line| {
-                    line.split_whitespace().next().map(|s| s.to_string())
-                })
-                .collect();
-            Ok(models)
-        } else {
-            Ok(Vec::new())
-        }
+        // Use the new dynamic Ollama manager
+        let ollama_manager = OllamaManager::new().await?;
+        
+        // Get models from the manager
+        let models = ollama_manager.get_discovered_models()
+            .iter()
+            .map(|model| model.name.clone())
+            .collect();
+        
+        Ok(models)
     }
     
     pub async fn get_system_status(&self) -> Result<HashMap<String, String>, Box<dyn std::error::Error>> {
