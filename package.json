@@ -1,9 +1,9 @@
 {
-  "name": "ai-sysadmin-supreme",
-  "version": "1.0.0",
-  "description": "Autonomous AI System Administrator for Lou's i9-13900HX Garuda Linux",
+  "name": "lous-garuda-ai-sysadmin-control-center",
   "private": true,
+  "version": "1.0.0",
   "type": "module",
+  "description": "Lou's Garuda AI SysAdmin Control Center - Ultimate system administration suite integrating ArchBackupPro, ArchForgePro, and OriginPC Control Center",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

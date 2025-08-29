@@ -1,11 +1,14 @@
 [package]
-name = "ai-sysadmin-supreme"
+name = "lous-garuda-ai-sysadmin-control-center"
 version = "1.0.0"
-description = "Autonomous AI System Administrator for Lou's i9-13900HX Garuda Linux"
-authors = ["Lou <lou@garuda.local>"]
+description = "Lou's Garuda AI SysAdmin Control Center - Ultimate system administration suite with AI intelligence"
+authors = ["Lou <wlfogle@github.com>"]
 license = "MIT"
 repository = "https://github.com/wlfogle/ai-sysadmin-supreme"
 edition = "2021"
+rust-version = "1.75.0"
+keywords = ["ai", "sysadmin", "garuda", "linux", "automation"]
+categories = ["system-administration", "development-tools"]
 
 [build-dependencies]
 tauri-build = { version = "1.0", features = [] }
